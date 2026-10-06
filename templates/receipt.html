@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {
+  font-family: Arial;
+}
+
+div.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<body>
+
+<h1>Receipt</h1>
+<div class="container">
+  <form method="post">
+      {% csrf_token %}
+
+    <label>Status : {{msg1}} {{msg2}} </label><br><br>
+    
+    <label>Name : {{output1}}</label><br><br>
+
+    <label>Address : {{output2}} </label><br><br>
+    
+    <label>Place : {{output3}} </label><br><br>
+    
+    <label>Phone Number : {{output4}} </label><br><br>
+    
+    <label>Email : {{output5}} </label><br><br>
+    
+    <label>Book ID : {{output6}} </label><br><br>
+    
+    <label>Amount : RS=250</label><br><br>
+    
+    <p>You have return within 7 days otherwise you have pay for each day RS 10</p>
+    <a href="{% url 'home1'%}"style="background-color: lightblue; color: black; padding: .5%; margin-left: 45%;">Conform</a>
+  </form>
+</div>
+</body>
+</html>

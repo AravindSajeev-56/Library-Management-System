@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:lightblue;
+}
+
+li {
+  float: left;
+
+}
+
+li a {
+  display: block;
+  color:black;
+  text-align: left;
+  padding: 16px 16px;
+  text-decoration:none;
+}
+.active{
+    text-decoration: whitesmoke;
+}
+</style>
+</head>
+<body>
+    <ul>
+        <li><a class="active" href="{% url 'home1'%}">Home</a></li>
+        <li><a href="{% url 'history'%}">History</a></li>
+        <li><a href="{% url 'biography'%}">Biography</a></li>
+        <li><a href="{% url 'poetry'%}">Poetry</a></li>
+        <li><a href="{% url 'fantasy'%}">Fantasy</a></li>
+        <li><a href="{% url 'classics'%}">classics</a></li> <br><br>
+    </ul>
+<h1 style="text-align: center; text-decoration: underline;"><b>About US </b></h1>
+<br>
+<p style="padding: 1%; font-size: larger;">
+Welcome to Knowledge Library, your trusted partner in efficient library management and enriched learning experiences. Our mission is to transform the way libraries operate by providing innovative, user-friendly solutions that streamline processes, enhance accessibility, and foster a love for reading and knowledge.
+we believe in the power of well-managed libraries to inspire minds and build communities. Our dedicated team of professionals combines expertise in technology, library sciences, and customer service to deliver comprehensive library management systems tailored to meet the unique needs of academic, public, and special libraries.
+We envision a world where libraries are seamlessly integrated into the digital age, providing patrons with easy access to a wealth of resources while maintaining the traditional values of knowledge sharing and community engagement. Through continuous innovation, we strive to make library management more efficient, cost-effective, and user-centric.
+Integrated Library System (ILS): Our robust ILS software offers comprehensive management of cataloging, circulation, acquisition, and patron services, ensuring smooth and efficient library operations.
+Digital Resources Access: Seamlessly connect your patrons to a vast array of digital resources, including e-books, online journals, and multimedia content, through our integrated digital resource platform.
+User-Friendly Interface: Designed with both librarians and patrons in mind, our intuitive interface enhances the user experience, making it easy to search, borrow, and manage library resources.
+Customizable Solutions: We understand that every library is unique. Our flexible and customizable solutions ensure that your library's specific needs and goals are met.
+Support and Training: Our commitment to customer satisfaction extends beyond implementation. We offer comprehensive support and training to ensure your library staff is confident and proficient in using our systems</p>
+
+
+<h3 style="padding: .9%; color: brown;">📜 Contact Details 📜</h3>
+<h4 style="padding: 1%;">Email : knowledgelibrary@gmail.com</h4>
+<h4 style="padding: 1%;">Phone : 9452368754</h4>
+  <br>
+  <br>
+  <br>
+</form>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+<style>
+  hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+  } 
+  
+  </style>
+</head>
+<body style="background-color: lightblue;">
+<h1 style="text-align: center; color: purple;">📒 Knowledge Library 📒 </h1>
+<hr>
+<marquee width="100%" direction="right" height="30px" bgcolor="red">
+  Monday to Saturady : 10 am to 5.30 pm.... Sunday & Public Holidays : 10 am to 11 am   
+  </marquee>
+<marquee width="100%" direction="left" height="30px" bgcolor="green">
+      .........." A book ia a gift you can open again and again ".........." There is no friend as loyal as a book ".........."Books are uniquely portable magic".........." A reader lives a thousand lives before he dies ".......... " I do belive somethind very magical can happend when you read a good book ".........." Reading is essential for those who seek to rise above the ordinary ".........." We lose ourselves in books,we find ourselves there too "..........
+</marquee>
+<hr>
+<h2 style="text-align: center;">Login / Create Account</h2>
+<div>
+    <form method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+      <input type="submit" value="Login"><br><br>
+  <a href="{% url 'reset'%}" ><I>Forgot Password?</I></a> <a href="{% url 'signup'%}" ><I>NEW USER</a> 
+  {{errmsg}}
+  <hr>
+  <br>
+  <h2 style="text-align: center;"> What we Offers</h2>
+  <div style="padding: 1%; font-size: larger;">
+  * Integrated Library System (ILS): Our robust ILS software offers comprehensive management of cataloging, circulation, acquisition, and patron services, ensuring smooth and efficient library operations.<br>
+  * Digital Resources Access: Seamlessly connect your patrons to a vast array of digital resources, including e-books, online journals, and multimedia content, through our integrated digital resource platform.<br>
+  * User-Friendly Interface: Designed with both librarians and patrons in mind, our intuitive interface enhances the user experience, making it easy to search, borrow, and manage library resources.<br>
+  * Customizable Solutions: We understand that every library is unique. Our flexible and customizable solutions ensure that your library's specific needs and goals are met<br>
+  * Support and Training: Our commitment to customer satisfaction extends beyond implementation. We offer comprehensive support and training to ensure your library staff is confident and proficient in using our systems<br>
+  </div>
+</form>
+</body>
+</html>

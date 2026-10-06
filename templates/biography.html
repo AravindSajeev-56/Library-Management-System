@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:lightblue;
+}
+
+li {
+  float: left;
+
+}
+
+li a {
+  display: block;
+  color:black;
+  text-align: left;
+  padding: 16px 16px;
+  text-decoration:none;
+}
+.active{
+    text-decoration: whitesmoke;
+}
+</style>
+</head>
+<body>
+    <ul>
+        <li><a class="active" href="{% url 'home1'%}">Home</a></li>
+        <li><a href="{% url 'history'%}">History</a></li>
+        <li><a href="{% url 'poetry'%}">Poetry</a></li>
+        <li><a href="{% url 'fantasy'%}">Fantasy</a></li>
+        <li><a href="{% url 'classics'%}">Classics</a></li>
+        <li><a href="{% url 'about'%}">About</a></li> <br><br>
+    </ul>
+<h1 style="text-align: center; text-decoration: underline;"><b>Biography</b></h1>
+<h3 style="padding: .9%; color: brown;">👤📖🖋️ The Captivating Lives Unveiled in Biography Books 👤📖🖋️</h3>
+<p style="padding: 1%; font-size: larger;">🌍🎨 Biography books are captivating works that delve into the lives of notable individuals, offering readers an intimate glimpse into their personal and professional journeys. These books often combine extensive research, personal anecdotes, and historical context to paint a comprehensive portrait of the subject. Through the pages of a biography, readers can explore the triumphs, challenges, and defining moments that shaped the individual's life, gaining insights into their character, motivations, and impact on the world. Whether it's the story of a pioneering scientist, a renowned artist, a political leader, or an everyday hero, biography books inspire and educate by highlighting the diverse paths to success and significance. They serve as powerful reminders of the human potential for resilience, creativity, and achievement, while also providing valuable lessons and perspectives from the experiences of others.
+    Biography books are extraordinary narratives that offer a deep dive into the lives of fascinating individuals, revealing the intricate details of their personal and professional journeys. They blend meticulous research with engaging storytelling to present a holistic view of the subject's life. These books capture the essence of what drives a person, from their early influences and struggles to their significant accomplishments and legacy. Readers are often drawn to biography books to understand the complex human experiences behind notable achievements, gaining insights into the resilience, creativity, and determination that define the lives of influential figures.
+    🌍🎨</p>
+
+<h3 style="padding: .9%; color: brown;">📜 Biography Books 📜</h3>
+  <form method="post" action="biographybooks">
+    {%csrf_token%}
+<div class="rightdiv">
+<div class="textboxstyle">
+<table border = "1" cellpadding = "5" cellspacing = "5">
+  <input style="background-color: lightblue;" type="submit" name="view" value="View 📕📓Books">
+<br>
+<br>
+<tr>
+<th>Book Name</th>
+<th>Book Author</th>
+<th>Book Type</th>
+<th>About Book</th>
+<th>Book ID</th>
+<th>Availability</th>
+</tr>
+{% for i in obj1 %}
+<tr>
+<td>{{i.book_name}}</td>
+<td>
+    {{i.book_author}}
+</td>
+<td>
+    {{i.book_type}}
+</td>
+<td>
+  {{i.details}}
+</td>
+<td>
+  {{i.bookid}}
+</td>
+<td>
+  {{i.availability}}
+  </td>
+</tr>
+{% endfor %}
+</table>
+<br>
+</div>
+</div>
+</form>
+<a href="{% url 'booking'%}"><button style="background-color: red; color: white; padding: .5%; margin-left: 45%;">Book Your Token</button></a>
+<br>
+<br>
+<br>
+</body>
+</html>

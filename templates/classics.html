@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:lightblue;
+}
+
+li {
+  float: left;
+
+}
+
+li a {
+  display: block;
+  color:black;
+  text-align: left;
+  padding: 16px 16px;
+  text-decoration:none;
+}
+.active{
+    text-decoration: whitesmoke;
+}
+</style>
+</head>
+<body>
+    <ul>
+        <li><a class="active" href="{% url 'home1'%}">Home</a></li>
+        <li><a href="{% url 'history'%}">History</a></li>
+        <li><a href="{% url 'biography'%}">Biography</a></li>
+        <li><a href="{% url 'poetry'%}">Poetry</a></li>
+        <li><a href="{% url 'fantasy'%}">Fantasy</a></li>
+        <li><a href="{% url 'about'%}">About</a></li> <br><br>
+    </ul>
+<h1 style="text-align: center; text-decoration: underline;"><b>Classics </b></h1>
+<h3 style="padding: .9%; color: brown;">🎭📖 The Enduring Legacy and Literary Excellence of Classic Books 🎭📖</h3>
+<p style="padding: 1%; font-size: larger;">🕰️✒️Classic books are timeless treasures that have captivated readers for generations, offering profound insights into human nature and society. These literary works have stood the test of time, transcending the eras in which they were written to remain relevant and influential today. Classics often explore universal themes such as love, conflict, morality, and the human condition, presented through compelling narratives and unforgettable characters. They provide a window into the cultural and historical contexts of their time, enriching our understanding of different periods and perspectives. Whether it’s the sweeping romances of the 19th century, the sharp social critiques of the early 20th century, or the introspective journeys of contemporary classics, these books continue to inspire, challenge, and resonate with readers.
+    Classic books are revered as the cornerstone of literary excellence, offering timeless narratives that have shaped the literary landscape and influenced countless writers and readers alike. These works, often penned by literary giants such as Jane Austen, Charles Dickens, Leo Tolstoy, and Mark Twain, delve into the complexities of the human experience, addressing themes of love, power, betrayal, and redemption. The characters in classic literature are richly developed and enduringly memorable, their stories resonating across generations.
+Reading classics provides an opportunity to explore different epochs and cultures, offering a lens into the societal norms and historical contexts of the time. The eloquent prose and intricate storytelling found in these books challenge readers to think critically and engage deeply with the text. Moreover, the moral and philosophical questions posed in classic literature encourage introspection and discourse, making them as relevant today as when they were first written.
+🕰️✒️</p>
+
+<h3 style="padding: .9%; color: brown;">📜 Classics Books 📜</h3>
+<form method="post" action="classicsbooks">
+  {%csrf_token%}
+<div class="rightdiv">
+<div class="textboxstyle">
+<table border = "1" cellpadding = "5" cellspacing = "5">
+  <input style="background-color: lightblue;" type="submit" name="view" value="View 📕📓Books">
+<br>
+<br>
+<tr>
+<th>Book Name</th>
+<th>Book Author</th>
+<th>Book Type</th>
+<th>About Book</th>
+<th>Book ID</th>
+<th>Availability</th>
+</tr>
+{% for i in obj1 %}
+<tr>
+<td>{{i.book_name}}</td>
+<td>
+  {{i.book_author}}
+</td>
+<td>
+  {{i.book_type}}
+</td>
+<td>
+{{i.details}}
+</td>
+<td>
+  {{i.bookid}}
+</td>
+<td>
+  {{i.availability}}
+  </td>
+</tr>
+{% endfor %}
+</table>
+</div>
+</div>
+</form>
+<br>
+<a href="{% url 'booking'%}"><button style="background-color: red; color: white; padding: .5%; margin-left: 45%;">Book Your Token</button></a>
+<br>
+<br>
+<br>
+</body>
+</html>

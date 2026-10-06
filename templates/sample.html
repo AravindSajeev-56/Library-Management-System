@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:lightblue;
+}
+
+li {
+  float: left;
+
+}
+
+li a {
+  display: block;
+  color:black;
+  text-align: left;
+  padding: 16px 16px;
+  text-decoration:none;
+}
+.active{
+    text-decoration: whitesmoke;
+}
+</style>
+</head>
+<body>
+    <ul>
+        <li><a class="active" href="{% url 'home1'%}">Home</a></li>
+        <li><a href="{% url 'history'%}">History</a></li>
+        <li><a href="{% url 'biography'%}">Biography</a></li>
+        <li><a href="{% url 'poetry'%}">Poetry</a></li>
+        <li><a href="{% url 'fantasy'%}">Fantasy</a></li>
+        <li><a href="{% url 'classics'%}">Classics</a></li>
+        <li><a href="{% url 'about'%}">About</a></li> <br><br>
+    </ul>
+<h1 style="text-align: center; text-decoration: underline;"><b>Welcome</b></h1>
+<marquee width="100%" direction="right" height="30px">
+ | New Books are Available | 5% discount on all types of books | Rented Books are available, Starting at 20rs /day | 
+  </marquee>
+  <form action="logout">
+    <input type="submit" value="signout" style="background-color:#f4511e; color:white; margin-left: 90%; text-align: right; font-size: 20px;" >
+  </form>
+<h3 style="padding: .9%; color: brown;">📚 The Library: A Sanctuary of Knowledge and Community Engagement... 📚</h3>
+<p style="padding: 1%; font-size: larger;"> 📖 📖 📖 A library is a haven of knowledge, offering a sanctuary for learning, research, and intellectual exploration. It houses a vast collection of books, periodicals, and digital media, catering to diverse interests and academic pursuits. Beyond being a repository of information, a library fosters community and connection by providing a space where individuals can engage in quiet study, collaborative projects, and cultural events. Modern libraries have evolved to include advanced technological resources, such as computers and internet access, aiding in research and bridging the digital divide. Librarians play a crucial role, guiding patrons in navigating the wealth of information and ensuring equitable access to resources. Whether for academic research, leisurely reading, or community engagement, libraries remain essential institutions that nurture curiosity, lifelong learning, and a shared love of knowledge. Books are portals to different worlds, offering readers the chance to embark on countless adventures, acquire knowledge, and explore various cultures and ideas. They have the unique ability to capture the imagination, whether through the vivid descriptions of fantastical realms or the detailed narratives of historical events. Books can educate, entertain, and inspire, providing solace in times of solitude and fostering a lifelong love of learning. From the tactile pleasure of turning pages to the convenience of e-books, they remain an enduring medium of expression and discovery. Whether cherished classics or contemporary works, books have the power to transform perspectives and leave a lasting impact on their readers.
+  more
+Libraries are essential pillars of communities, serving as inclusive spaces where knowledge is accessible to all, regardless of background or circumstance. They are more than mere repositories of books; they are vibrant hubs for education, inspiration, and connection. A library fosters a culture of lifelong learning by offering a diverse array of resources, from literature and research materials to digital media and online databases. It supports individuals in their academic pursuits, personal growth, and professional development. Libraries host a multitude of programs and events, such as author talks, workshops, and book clubs, which help to cultivate a sense of community and shared passion for learning.
+📚🌍✨</p>
+
+<h3 style="padding: .9%; color: brown;">📙📘The Timeless Influence and Enduring Appeal of Books 📙📘</h3>
+<p style="padding: 1%; font-size: larger;"> 📕📓Books are incredible treasures that transcend time and space, offering us the ability to explore different worlds, eras, and perspectives. They are gateways to knowledge, allowing us to learn about science, history, art, and countless other subjects. Through stories, books ignite our imagination, transporting us to magical realms, distant planets, or the depths of human experiences. They provide a means of escape, relaxation, and inspiration, often sparking new ideas and emotions. Books also play a vital role in shaping our understanding of the world, fostering empathy by sharing diverse voices and experiences. Whether enjoyed in the form of physical pages or digital screens, books remain an essential part of our lives, continuously enriching our minds and souls.
+  Books are extraordinary companions that offer endless possibilities for growth and exploration. They serve as windows to the vast expanse of human knowledge, capturing the wisdom of generations and presenting it in accessible and engaging formats. Through fiction, we can immerse ourselves in the lives of characters, experiencing their joys, struggles, and adventures, which helps build empathy and understanding. Non-fiction books open doors to new learning opportunities, from scientific discoveries and historical accounts to practical skills and self-improvement techniques.
+
+Books can also serve as a source of solace and comfort, providing a quiet refuge from the hustle and bustle of everyday life. The act of reading itself can be meditative, allowing us to slow down and focus, offering a respite from the constant stream of digital information. The tactile sensation of holding a book, the smell of its pages, and the ritual of turning each page create a sensory experience that digital media often lacks.
+
+Moreover, books play a pivotal role in education and personal development. They encourage critical thinking and creativity, inspire new ideas, and challenge our beliefs. Reading broadly exposes us to diverse perspectives and cultures, fostering a more inclusive and informed worldview. In a rapidly changing world, the timeless nature of books ensures they remain relevant, continuing to influence and shape society in profound ways.
+📕📓</p>
+  <br>
+  <br>
+  <form method="post" action="viewallbooks">
+    {%csrf_token%}
+  <div class="rightdiv">
+  <div class="textboxstyle">
+  <table border = "1" cellpadding = "5" cellspacing = "5">
+    <input style="background-color: lightblue; margin-left: 45%;" type="submit" name="view" value="View 📕📓Books">
+  <br>
+  <br>
+  <tr>
+  <th>Book Name</th>
+  <th>Book Author</th>
+  <th>Book Type</th>
+  <th>About Book</th>
+  <th>Book ID</th>
+  <th>Availability</th>
+  </tr>
+  {% for i in obj1 %}
+  <tr>
+  <td>{{i.book_name}}</td>
+  <td>
+    {{i.book_author}}
+  </td>
+  <td>
+    {{i.book_type}}
+  </td>
+  <td>
+  {{i.details}}
+  </td>
+  <td>
+    {{i.bookid}}
+  </td>
+  <td>
+    {{i.availability}}
+    </td>
+  
+  </tr>
+  {% endfor %}
+  </table>
+  </div>
+  </div>
+  </form>
+  <br>
+</body>
+</html>

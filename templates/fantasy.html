@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:lightblue;
+}
+
+li {
+  float: left;
+
+}
+
+li a {
+  display: block;
+  color:black;
+  text-align: left;
+  padding: 16px 16px;
+  text-decoration:none;
+}
+.active{
+    text-decoration: whitesmoke;
+}
+</style>
+</head>
+<body>
+    <ul>
+        <li><a class="active" href="{% url 'home1'%}">Home</a></li>
+        <li><a href="{% url 'history'%}">History</a></li>
+        <li><a href="{% url 'biography'%}">Biography</a></li>
+        <li><a href="{% url 'poetry'%}">Poetry</a></li>
+        <li><a href="{% url 'classics'%}">Classics</a></li>
+        <li><a href="{% url 'about'%}">About</a></li> <br><br>
+    </ul>
+<h1 style="text-align: center; text-decoration: underline;"><b>Fantasy </b></h1>
+<h3 style="padding: .9%; color: brown;">📖🌟 The Enchanting Realms and Boundless Imagination of Fantasy Books 📖🌟</h3>
+<p style="padding: 1%; font-size: larger;">🗡️🏰A fantasy book is a portal to a realm where the boundaries of reality blur, and imagination reigns supreme. It invites readers into a world of magic, mythical creatures, and epic adventures that transcend the ordinary. Within these pages, one might encounter heroic quests, enchanted forests, and ancient prophecies that shape the destinies of captivating characters. Fantasy books often explore profound themes such as good versus evil, the hero's journey, and the power of friendship and courage. They offer a rich tapestry of world-building, where intricate details and lore create immersive settings that feel both wondrous and believable. Whether it's the allure of discovering hidden realms, wielding magical powers, or embarking on grand adventures, fantasy books provide an escape into a universe where anything is possible, and the extraordinary becomes the norm.
+    Fantasy books are enchanting gateways to universes where the imagination knows no bounds. They transport readers to lands filled with magic, mythical beings, and epic quests that challenge the very fabric of reality. These books weave intricate tales of heroism, adventure, and the timeless battle between good and evil, often set in richly detailed worlds that feel both fantastical and palpable. The allure of fantasy lies in its ability to create immersive experiences, where readers can encounter dragons soaring in the skies, wizards casting spells, and ancient prophecies guiding the fates of kingdoms.
+The characters in fantasy stories are often on transformative journeys, discovering their inner strength and forging unbreakable bonds with allies. Themes of bravery, friendship, and the triumph of hope over darkness resonate deeply, providing both escapism and profound reflections on the human spirit. Whether navigating through enchanted forests, unraveling the mysteries of hidden realms, or engaging in battles against formidable foes, fantasy books offer a boundless escape into worlds where the extraordinary becomes reality.
+🗡️🏰</p>
+
+<h3 style="padding: .9%; color: brown;">📜 Fantasy Books 📜</h3>
+  <form method="post" action="fantasybooks">
+    {%csrf_token%}
+<div class="rightdiv">
+<div class="textboxstyle">
+<table border = "1" cellpadding = "5" cellspacing = "5">
+  <input style="background-color: lightblue;" type="submit" name="view" value="View 📕📓Books">
+<br>
+<br>
+<tr>
+<th>Book Name</th>
+<th>Book Author</th>
+<th>Book Type</th>
+<th>About Book</th>
+<th>Book ID</th>
+<th>Availability</th>
+</tr>
+{% for i in obj1 %}
+<tr>
+<td>{{i.book_name}}</td>
+<td>
+    {{i.book_author}}
+</td>
+<td>
+    {{i.book_type}}
+</td>
+<td>
+  {{i.details}}
+</td>
+<td>
+  {{i.bookid}}
+</td>
+<td>
+  {{i.availability}}
+  </td>
+</tr>
+{% endfor %}
+</table>
+</div>
+</div>
+</form>
+<br>
+<a href="{% url 'booking'%}"><button style="background-color: red; color: white; padding: .5%; margin-left: 45%;">Book Your Token</button></a>
+<br>
+<br>
+<br>
+</body>
+</html>
